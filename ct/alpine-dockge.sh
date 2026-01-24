@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
+source <(curl -fsSL https://raw.githubusercontent.com/JazenaYLA/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2026 tteck
 # Author: tteck (tteckster)
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
@@ -33,7 +33,7 @@ function update_script() {
   msg_ok "Updated Alpine Packages"
 
   msg_info "Updating Dockge"
-  cd /opt/dockge
+  cd /opt/dockge || exit
   $STD docker compose pull
   $STD docker compose up -d
   msg_ok "Updated Dockge"
