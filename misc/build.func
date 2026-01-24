@@ -320,7 +320,7 @@ validate_container_id() {
   fi
 
   # Check if ID is used in LVM logical volumes
-  if lvs --noheadings -o lv_name 2>/dev/null | grep -qE "(^|[-_])${ctid}($|[-_])"; then
+  if lvs --noheadings -o lv_name 2>/dev/null | grep -qE '(^|[-_])'"${ctid}"'($|[-_])'; then
     return 1
   fi
 
@@ -1040,7 +1040,7 @@ load_vars_file() {
 
       # Strip inline comments (anything after unquoted #)
       # Only strip if not inside quotes
-      if [[ ! "$var_val" =~ ^[\"\'] ]]; then
+      if [[ ! "$var_val" =~ ^\" ]] && [[ ! "$var_val" =~ ^\' ]]; then
         var_val="${var_val%%#*}"
       fi
 
@@ -1425,7 +1425,7 @@ _build_vars_diff() {
 
   # Changed & Removed
   for k in "${!OLD[@]}"; do
-    if [[ -v NEW["$k"] ]]; then
+    if [[ -n "${NEW[$k]+1}" ]]; then
       if [[ "${OLD[$k]}" != "${NEW[$k]}" ]]; then
         out+="~ ${k}\n    - old: ${OLD[$k]}\n    + new: ${NEW[$k]}\n"
         found_change=1
@@ -1438,7 +1438,7 @@ _build_vars_diff() {
 
   # Added
   for k in "${!NEW[@]}"; do
-    if [[ ! -v OLD["$k"] ]]; then
+    if [[ -z "${OLD[$k]+1}" ]]; then
       out+="+ ${k}\n    + new: ${NEW[$k]}\n"
       found_change=1
     fi
