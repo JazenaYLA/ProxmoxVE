@@ -5,6 +5,9 @@
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 # Source: https://dockge.kuma.pet/
 
+if [ -z "$FUNCTIONS_FILE_PATH" ]; then
+  FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/alpine-install.func)"
+fi
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
 verb_ip6
@@ -14,7 +17,7 @@ network_check
 update_os
 
 msg_info "Installing Dependencies"
-$STD apk add tzdata curl
+$STD apk add tzdata curl iptables
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Docker"
@@ -23,7 +26,7 @@ $STD rc-service docker start
 $STD rc-update add docker default
 msg_ok "Installed Docker"
 
-msg_info "Installing Dockge"
+msg_info "Inst || exitalling Dockge"
 mkdir -p /opt/dockge /opt/stacks
 curl -fsSL "https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml" -o "/opt/dockge/compose.yaml"
 cd /opt/dockge
