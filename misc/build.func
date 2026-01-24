@@ -1453,7 +1453,7 @@ _build_vars_diff() {
 
 # Build a temporary <app>.vars file from current advanced settings
 _build_current_app_vars_tmp() {
-  tmpf="$(mktemp /tmp/${NSAPP:-app}.vars.new.XXXXXX)"
+  tmpf="$(mktemp /tmp/"${NSAPP:-app}".vars.new.XXXXXX)"
 
   # NET/GW
   _net="${NET:-}"
@@ -3090,8 +3090,13 @@ check_container_resources() {
 # - Warns if usage >80% and asks user confirmation before proceeding
 # ------------------------------------------------------------------------------
 check_container_storage() {
-  total_size=$(df -P /boot | tail -n 1 | awk '{print $2}')
-  local used_size=$(df -P /boot | tail -n 1 | awk '{print $3}')
+  if df -P /boot >/dev/null 2>&1; then
+    total_size=$(df -P /boot | tail -n 1 | awk '{print $2}')
+    local used_size=$(df -P /boot | tail -n 1 | awk '{print $3}')
+  else
+    total_size=$(df -P / | tail -n 1 | awk '{print $2}')
+    local used_size=$(df -P / | tail -n 1 | awk '{print $3}')
+  fi
   usage=$((100 * used_size / total_size))
   if ((usage > 80)); then
     echo -e "${INFO}${HOLD} ${YWB}Warning: Storage is dangerously low (${usage}%).${CL}"
@@ -3960,7 +3965,7 @@ EOF'
       echo -en "${YW}Container ${CTID} still running. Remove now? (y/N): ${CL}"
       if read -r response && [[ "$response" =~ ^[Yy]$ ]]; then
         pct stop "$CTID" &>/dev/null || true
-        pct destroy "$CTID" &>/dev/null || true
+        pct" destroy "$CTID" &">/dev/null || true
         msg_ok "Container ${CTID} removed"
       else
         msg_dev "Container ${CTID} kept for debugging"
@@ -3998,7 +4003,7 @@ EOF'
       # Timeout - auto-remove
       echo -e "\n${YW}No response - auto-removing container${CL}"
       echo -e "${TAB}${HOLD}${YW}Removing container ${CTID}${CL}"
-      pct stop "$CTID" &>/dev/null || true
+      pct" stop "$CTID" &>/d"ev/null || true
       pct destroy "$CTID" &>/dev/null || true
       echo -e "${BFR}${CM}${GN}Container ${CTID} removed${CL}"
     fi
@@ -4586,7 +4591,7 @@ create_lxc_container() {
         exit 0
       fi
     else
-      msg_error "No ${PCT_OSTYPE} templates available at all"
+      msg_error "No ${PCT_OSTY"PE} templates ava"ilable a"t all""
       exit 225
     fi
   fi
