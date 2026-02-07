@@ -29,7 +29,7 @@ function update_script() {
     exit
   fi
 
-  if check_for_gh_release "scanopy" "scanopy/scanopy"; then
+  if check_for_gh_release "Scanopy" "scanopy/scanopy"; then
     msg_info "Stopping services"
     systemctl stop scanopy-server
     [[ -f /etc/systemd/system/scanopy-daemon.service ]] && systemctl stop scanopy-daemon
@@ -40,14 +40,9 @@ function update_script() {
     [[ -f /opt/scanopy/oidc.toml ]] && cp /opt/scanopy/oidc.toml /opt/scanopy.oidc.toml
     msg_ok "Backed up configurations"
 
-    CLEAN_INSTALL=1 fetch_and_deploy_gh_release "scanopy" "scanopy/scanopy" "tarball" "latest" "/opt/scanopy"
+    CLEAN_INSTALL=1 fetch_and_deploy_gh_release "Scanopy" "scanopy/scanopy" "tarball" "latest" "/opt/scanopy"
 
-    if ! dpkg -l | grep -q "pkg-config"; then
-      $STD apt install -y pkg-config
-    fi
-    if ! dpkg -l | grep -q "libssl-dev"; then
-      $STD apt install -y libssl-dev
-    fi
+    ensure_dependencies pkg-config libssl-dev
     TOOLCHAIN="$(grep "channel" /opt/scanopy/backend/rust-toolchain.toml | awk -F\" '{print $2}')"
     RUST_TOOLCHAIN=$TOOLCHAIN setup_rust
 
@@ -66,16 +61,22 @@ function update_script() {
     $STD npm run build
     msg_ok "Created frontend UI"
 
-    msg_info "Building scanopy-server (patience)"
+    msg_info "Building Scanopy Server (patience)"
     cd /opt/scanopy/backend
     $STD cargo build --release --bin server
     mv ./target/release/server /usr/bin/scanopy-server
-    msg_ok "Built scanopy-server"
+    msg_ok "Built Scanopy Server"
 
-    msg_info "Building scanopy-daemon"
-    $STD cargo build --release --bin daemon
-    cp ./target/release/daemon /usr/bin/scanopy-daemon
-    msg_ok "Built scanopy-daemon"
+    if [[ -f /etc/systemd/system/scanopy-daemon.service ]]; then
+      fetch_and_deploy_gh_release "Scanopy Daemon" "scanopy/scanopy" "singlefile" "latest" "/usr/local/bin" "scanopy-daemon-linux-amd64"
+      mv "/usr/local/bin/Scanopy Daemon" /usr/local/bin/scanopy-daemon
+      rm -f /usr/bin/scanopy-daemon ~/configure_daemon.sh
+      sed -i -e 's|usr/bin|usr/local/bin|' \
+        -e 's/push/daemon_poll/' \
+        -e 's/pull/server_poll/' /etc/systemd/system/scanopy-daemon.service
+      systemctl daemon-reload
+      msg_ok "Updated Scanopy Daemon"
+    fi
 
     msg_info "Starting services"
     systemctl start scanopy-server

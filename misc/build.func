@@ -991,7 +991,7 @@ base_settings() {
   fi
 
   MTU=${var_mtu:-""}
-  SD=${var_storage:-""}
+  SD=${var_searchdomain:-""}
   NS=${var_ns:-""}
   MAC=${var_mac:-""}
   VLAN=${var_vlan:-""}
@@ -2764,7 +2764,7 @@ Advanced:
   [[ -n "${CT_TIMEZONE:-}" ]] && echo -e "${INFO}${BOLD}${DGN}Timezone: ${BGN}$CT_TIMEZONE${CL}"
   [[ "$APT_CACHER" == "yes" ]] && echo -e "${INFO}${BOLD}${DGN}APT Cacher: ${BGN}$APT_CACHER_IP${CL}"
   echo -e "${SEARCH}${BOLD}${DGN}Verbose Mode: ${BGN}$VERBOSE${CL}"
-  echo -e "${CREATING}${BOLD}${RD}Creating a ${APP} LXC using the above advanced settings${CL}"
+  echo -e "${CREATING}${BOLD}${RD}Creating an LXC of ${APP} using the above advanced settings${CL}"
 }
 
 # ==============================================================================
