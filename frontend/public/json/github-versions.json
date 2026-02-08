@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-07T00:21:04Z",
+  "generated": "2026-02-08T18:08:50Z",
   "versions": [
     {
       "slug": "2fauth",
@@ -121,6 +121,13 @@
       "date": "2026-02-01T19:02:42Z"
     },
     {
+      "slug": "bichon",
+      "repo": "rustmailer/bichon",
+      "version": "0.3.7",
+      "pinned": false,
+      "date": "2026-01-28T12:47:09Z"
+    },
+    {
       "slug": "bitmagnet",
       "repo": "bitmagnet-io/bitmagnet",
       "version": "v0.10.0",
@@ -151,9 +158,9 @@
     {
       "slug": "byparr",
       "repo": "ThePhaseless/Byparr",
-      "version": "v2.0.1",
+      "version": "v2.1.0",
       "pinned": false,
-      "date": "2025-09-11T20:29:38Z"
+      "date": "2026-02-08T12:59:20Z"
     },
     {
       "slug": "bytestash",
@@ -168,6 +175,13 @@
       "version": "v0.4.5",
       "pinned": false,
       "date": "2025-07-29T16:39:18Z"
+    },
+    {
+      "slug": "checkmate",
+      "repo": "bluewave-labs/Checkmate",
+      "version": "v3.3",
+      "pinned": false,
+      "date": "2026-01-28T14:25:25Z"
     },
     {
       "slug": "cleanuparr",
@@ -235,9 +249,9 @@
     {
       "slug": "dawarich",
       "repo": "Freika/dawarich",
-      "version": "1.0.4",
+      "version": "1.1.0",
       "pinned": false,
-      "date": "2026-02-01T11:37:27Z"
+      "date": "2026-02-08T14:42:45Z"
     },
     {
       "slug": "discopanel",
@@ -326,9 +340,9 @@
     {
       "slug": "firefly",
       "repo": "firefly-iii/firefly-iii",
-      "version": "v6.4.16",
+      "version": "v6.4.18",
       "pinned": false,
-      "date": "2026-01-17T07:54:15Z"
+      "date": "2026-02-08T07:28:00Z"
     },
     {
       "slug": "fladder",
@@ -375,9 +389,9 @@
     {
       "slug": "ghostfolio",
       "repo": "ghostfolio/ghostfolio",
-      "version": "2.236.0",
+      "version": "2.237.0",
       "pinned": false,
-      "date": "2026-02-05T19:30:11Z"
+      "date": "2026-02-08T13:59:53Z"
     },
     {
       "slug": "gitea",
@@ -515,9 +529,9 @@
     {
       "slug": "huntarr",
       "repo": "plexguide/Huntarr.io",
-      "version": "9.2.2",
+      "version": "9.2.3",
       "pinned": false,
-      "date": "2026-02-06T22:01:36Z"
+      "date": "2026-02-07T04:44:20Z"
     },
     {
       "slug": "inspircd",
@@ -543,9 +557,9 @@
     {
       "slug": "jackett",
       "repo": "Jackett/Jackett",
-      "version": "v0.24.1044",
+      "version": "v0.24.1066",
       "pinned": false,
-      "date": "2026-02-06T05:55:31Z"
+      "date": "2026-02-08T05:59:28Z"
     },
     {
       "slug": "joplin-server",
@@ -760,9 +774,9 @@
     {
       "slug": "mediamtx",
       "repo": "bluenviron/mediamtx",
-      "version": "v1.16.0",
+      "version": "v1.16.1",
       "pinned": false,
-      "date": "2026-01-31T15:38:51Z"
+      "date": "2026-02-07T18:58:24Z"
     },
     {
       "slug": "meilisearch",
@@ -774,16 +788,16 @@
     {
       "slug": "memos",
       "repo": "usememos/memos",
-      "version": "v0.26.0",
-      "pinned": false,
-      "date": "2026-01-31T15:28:09Z"
+      "version": "v0.25.3",
+      "pinned": true,
+      "date": "2025-11-25T15:40:41Z"
     },
     {
       "slug": "metube",
       "repo": "alexta69/metube",
-      "version": "2026.02.06",
+      "version": "2026.02.08",
       "pinned": false,
-      "date": "2026-02-06T14:20:34Z"
+      "date": "2026-02-08T17:01:37Z"
     },
     {
       "slug": "miniflux",
@@ -823,9 +837,9 @@
     {
       "slug": "navidrome",
       "repo": "navidrome/navidrome",
-      "version": "v0.60.0",
+      "version": "v0.60.2",
       "pinned": false,
-      "date": "2026-02-03T18:57:04Z"
+      "date": "2026-02-07T19:42:33Z"
     },
     {
       "slug": "netbox",
@@ -851,9 +865,9 @@
     {
       "slug": "nocodb",
       "repo": "nocodb/nocodb",
-      "version": "0.301.2",
-      "pinned": false,
-      "date": "2026-01-21T16:23:04Z"
+      "version": "0.301.1",
+      "pinned": true,
+      "date": "2026-01-14T13:13:33Z"
     },
     {
       "slug": "nodebb",
@@ -991,9 +1005,9 @@
     {
       "slug": "peanut",
       "repo": "Brandawg93/PeaNUT",
-      "version": "v5.21.2",
+      "version": "v5.22.0",
       "pinned": false,
-      "date": "2026-01-18T17:32:08Z"
+      "date": "2026-02-08T00:32:25Z"
     },
     {
       "slug": "pelican-panel",
@@ -1117,9 +1131,9 @@
     {
       "slug": "pulse",
       "repo": "rcourtman/Pulse",
-      "version": "v5.1.2",
+      "version": "v5.1.5",
       "pinned": false,
-      "date": "2026-02-05T00:18:57Z"
+      "date": "2026-02-08T12:19:53Z"
     },
     {
       "slug": "pve-scripts-local",
@@ -1334,9 +1348,9 @@
     {
       "slug": "tandoor",
       "repo": "TandoorRecipes/recipes",
-      "version": "2.4.2",
+      "version": "2.5.0",
       "pinned": false,
-      "date": "2026-02-01T12:52:37Z"
+      "date": "2026-02-08T13:23:02Z"
     },
     {
       "slug": "tasmoadmin",
@@ -1432,9 +1446,9 @@
     {
       "slug": "trip",
       "repo": "itskovacs/TRIP",
-      "version": "1.38.1",
+      "version": "1.39.0",
       "pinned": false,
-      "date": "2026-02-04T18:10:15Z"
+      "date": "2026-02-07T16:59:51Z"
     },
     {
       "slug": "tududi",
@@ -1488,9 +1502,9 @@
     {
       "slug": "uptimekuma",
       "repo": "louislam/uptime-kuma",
-      "version": "2.0.2",
+      "version": "2.1.0",
       "pinned": false,
-      "date": "2025-10-22T17:03:54Z"
+      "date": "2026-02-07T02:31:49Z"
     },
     {
       "slug": "vaultwarden",
@@ -1614,9 +1628,9 @@
     {
       "slug": "yubal",
       "repo": "guillevc/yubal",
-      "version": "v0.4.0",
+      "version": "v0.4.1",
       "pinned": false,
-      "date": "2026-02-06T21:25:24Z"
+      "date": "2026-02-08T03:18:51Z"
     },
     {
       "slug": "zigbee2mqtt",
